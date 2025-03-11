@@ -7,10 +7,10 @@
 	[AgeMax] INT NOT NULL,
 	[Nombre_Joueur_Min] INT NOT NULL,
 	[Nombre_Joueur_Max] INT NOT NULL,
-	[Duree_Minute] TIME,
+	[Duree_Minute] INT,
 	[Date_Creation] DATETIME NOT NULL DEFAULT GETDATE(),
 	[Cree_par] UNIQUEIDENTIFIER,
-	CONSTRAINT CK_NbJoueur CHECK ([Nombre_Joueur_Min]<[Nombre_Joueur_Max]),
+	CONSTRAINT CK_NbJoueur CHECK ([Nombre_Joueur_Min]<=[Nombre_Joueur_Max]),
 	CONSTRAINT CK_AgeJoueur CHECK ([AgeMin]<[AgeMax]),
 	CONSTRAINT FK_UtilisateurCreateur FOREIGN KEY ([Cree_par]) REFERENCES [Utilisateur] ([Utilisateur_Id]) ON DELETE SET NULL
 
