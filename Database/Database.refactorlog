@@ -7,4 +7,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Id_Utilisateur" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="b8437ca4-4baf-4c9c-b3c8-6c164e8b6018" ChangeDateTime="03/11/2025 11:28:39">
+    <Property Name="ElementName" Value="[dbo].[Association].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Association]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Association_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2c06fbf4-5a1d-41f2-aa70-06a3a924c34b" ChangeDateTime="03/11/2025 11:42:36">
+    <Property Name="ElementName" Value="[dbo].[Collection].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Collection]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Collection_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d33cf9ef-bad0-45ec-8fa4-c3e828eca1cd" ChangeDateTime="03/11/2025 12:01:19">
+    <Property Name="ElementName" Value="[dbo].[Emprunt].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Emprunt]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Emprunt_Id" />
+  </Operation>
 </Operations>

@@ -12,6 +12,6 @@
 	[Cree_par] UNIQUEIDENTIFIER,
 	CONSTRAINT CK_NbJoueur CHECK ([Nombre_Joueur_Min]<[Nombre_Joueur_Max]),
 	CONSTRAINT CK_AgeJoueur CHECK ([AgeMin]<[AgeMax]),
-	CONSTRAINT FK_UtilisateurCreateur FOREIGN KEY ([Cree_par]) REFERENCES [Utilisateur] ([Id_Utilisateur]) ON DELETE SET NULL
+	CONSTRAINT FK_UtilisateurCreateur FOREIGN KEY ([Cree_par]) REFERENCES [Utilisateur] ([Utilisateur_Id]) ON DELETE SET NULL
 
 )

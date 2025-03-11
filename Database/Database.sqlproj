@@ -61,6 +61,10 @@
   <ItemGroup>
     <Build Include="Tables\Jeu.sql" />
     <Build Include="Tables\Utilisateur.sql" />
+    <Build Include="Tables\Association.sql" />
+    <Build Include="Tables\Tag.sql" />
+    <Build Include="Tables\Collection.sql" />
+    <Build Include="Tables\Emprunt.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
