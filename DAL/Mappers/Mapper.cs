@@ -21,7 +21,7 @@ namespace DAL.Mappers
                 Pseudo = (string)record[nameof(Utilisateur.Pseudo)],
                 Date_Creation = (DateTime)record[nameof(Utilisateur.Date_Creation)],
                 Date_Desactivation = (record[nameof(Utilisateur.Date_Desactivation)] is DBNull) ? null : (DateTime?)record[nameof(Utilisateur.Date_Desactivation)]
-            }
+            };
         }
     }
 }

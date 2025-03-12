@@ -86,6 +86,7 @@ namespace DAL.Services
                     command.CommandText = "SP_Utilisateur_Update";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue(nameof(Utilisateur_id), Utilisateur_id);
+                    command.Parameters.AddWithValue(nameof(Utilisateur.Email), utilisateur.Email);
                     command.Parameters.AddWithValue(nameof(Utilisateur.Pseudo),utilisateur.Pseudo );
                     connection.Open();
                     command.ExecuteNonQuery();
