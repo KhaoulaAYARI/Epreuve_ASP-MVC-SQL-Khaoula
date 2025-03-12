@@ -1,0 +1,38 @@
+﻿@model ASP_MVC.Models.Utilisateur.UtilisateurDetails
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>UtilisateurDetails</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pseudo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pseudo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date_Creation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date_Creation)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.Utilisateur_Id }) 
+
+    
+    @* <a asp-action="Index">Back to List</a>*/ *@
+</div>
