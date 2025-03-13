@@ -23,5 +23,23 @@ namespace DAL.Mappers
                 Date_Desactivation = (record[nameof(Utilisateur.Date_Desactivation)] is DBNull) ? null : (DateTime?)record[nameof(Utilisateur.Date_Desactivation)]
             };
         }
+        public static Jeu ToJeu(this IDataRecord record)
+        {
+            if (record is null) throw new ArgumentNullException(nameof(record));
+            return new Jeu()
+            {
+                Jeu_Id= (Guid)record[nameof(Jeu.Jeu_Id)],
+                Nom=(string)record[nameof(Jeu.Nom)],
+                Description = (string)record[nameof(Jeu.Description)],
+                AgeMin = (int)record[nameof(Jeu.AgeMin)],
+                AgeMax =(int)record[nameof(Jeu.AgeMax)],
+                Nombre_Joueur_Min= (int)record[nameof(Jeu.Nombre_Joueur_Min)],
+                Nombre_Joueur_Max = (int)record[nameof(Jeu.Nombre_Joueur_Max)],
+                Duree_Minute= (record[nameof(Jeu.Duree_Minute)] is DBNull) ? null : (int?)record[nameof(Jeu.Duree_Minute)],
+                Date_Creation=(DateTime)record[nameof(Jeu.Date_Creation)],
+                Cree_Par= (record[nameof(Jeu.Cree_Par)] is DBNull) ? null : (Guid?)record[nameof(Jeu.Cree_Par)]
+            };
+
+        }
     }
 }

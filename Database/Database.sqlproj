@@ -75,6 +75,13 @@
     <Build Include="StoredProcedure\SP_Utilisateur_GetAllActive.sql" />
     <Build Include="StoredProcedure\PS_Utilisateur_GetById.sql" />
     <Build Include="StoredProcedure\SP_Utilisateur_Delete.sql" />
+    <Build Include="StoredProcedure\SP_Jeu_GetAll.sql" />
+    <Build Include="StoredProcedure\SP_Jeu_GetById.sql" />
+    <Build Include="StoredProcedure\SP_jeu_GetByUtilisateurId.sql" />
+    <Build Include="StoredProcedure\SP_Jeu_Insert.sql" />
+    <Build Include="StoredProcedure\SP_Jeu_Update.sql" />
+    <Build Include="StoredProcedure\SP_Jeu_Delete.sql" />
+    <Build Include="StoredProcedure\SP_Test.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />

@@ -4,6 +4,7 @@ using DAL.Services;
 //using BLL.Services;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ConsoleTest
 {
@@ -11,9 +12,58 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-           UtilisateurService service = new UtilisateurService();
+            /* Test Delete(DAL) OK13 - 02 - 2025
+           JeuService service = new JeuService();
+           Guid id = Guid.Parse("4d29fd87-4078-4bca-afea-2436d9283eb4");
+           service.Delete(id);*/
 
-            /*-------------TEST DAL-------------
+
+           /*-------------TEST DAL Jeu-------------
+       * -------------------------------------------------*/
+            /* Test GetByUtilisateurId(DAL) OK13 - 02 - 2025
+             Guid id = Guid.Parse("a91e641f-464a-4a28-8799-ef98a46a8b13");
+             foreach (Jeu j in service.GetFromUser(id)){
+                 Console.WriteLine($"Nom: {j.Nom} ");
+             }*/
+            /* * Test GetALL (DAL) OK13-02-2025
+         * foreach (Jeu j in service.Get())
+        {
+        Console.WriteLine($"Nom: {j.Nom} ");
+        }
+            *Test GetById(DAL) OK13 - 02 - 2025
+            Guid id = Guid.Parse("4d29fd87-4078-4bca-afea-2436d9283eb4");
+            Jeu j = service.GetById(id);
+            Console.WriteLine(j.Nom);*/
+            /* * Test Insert (DAL) OK13-02-2025
+             Jeu jeu = new Jeu()
+             {
+                 Jeu_Id=Guid.NewGuid(),
+                 Nom="TestInsert",
+                 Description= "TestInsert",
+                 AgeMin=10,
+                 AgeMax=100,
+                 Nombre_Joueur_Min=1,
+                 Nombre_Joueur_Max=10,
+                 Duree_Minute=10,
+                 Date_Creation= DateTime.Now,
+                 Cree_Par=null
+             };
+             service.Insert(jeu);
+             Console.WriteLine($"jeu inséré avec succès. ID : {jeu.Jeu_Id}{jeu.Nom}"); */
+
+
+
+
+
+
+
+
+
+
+
+            // UtilisateurService service = new UtilisateurService();
+
+            /*-------------TEST DAL Utilisateur-------------
              * ---------------------------------
              * Test INSERT (DAL) OK12-02-2025
              * Utilisateur u = new Utilisateur()
@@ -102,7 +152,7 @@ namespace ConsoleTest
            Console.WriteLine("apres update");
            Console.WriteLine($"{u.Utilisateur_Id}--{u.Pseudo}");*/
 
-
+            /*
             // Création d'un nouvel utilisateur
             Utilisateur u = new Utilisateur()
             {
@@ -126,7 +176,7 @@ namespace ConsoleTest
             service.Update(u.Utilisateur_Id, u);
 
             // Affichage après la mise à jour
-            Console.WriteLine($"{u.Utilisateur_Id} -- {u.Pseudo}");
+            Console.WriteLine($"{u.Utilisateur_Id} -- {u.Pseudo}");*/
 
 
         }
