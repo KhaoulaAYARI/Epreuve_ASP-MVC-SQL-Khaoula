@@ -1,6 +1,8 @@
 ﻿using ASP_MVC.Mappers;
 using ASP_MVC.Models.Utilisateur;
+using BLL.Entities;
 using BLL.Services;
+using Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,9 +10,9 @@ namespace ASP_MVC.Controllers
 {
     public class UtilisateurController : Controller
     {
-        private UtilisateurService _utilisateurService;
+        private IUtilisateurRepository<Utilisateur> _utilisateurService;
 
-        public UtilisateurController(UtilisateurService utilisateurService)
+        public UtilisateurController(IUtilisateurRepository<Utilisateur> utilisateurService)
         {
             _utilisateurService= utilisateurService;
         }

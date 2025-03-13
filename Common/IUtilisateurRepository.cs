@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Common
 {
-    internal interface IUtilisateurRepository
+    public interface IUtilisateurRepository<TUtilisateur>
     {
+        IEnumerable<TUtilisateur> Get();
+        TUtilisateur GetById(Guid Utilisateur_id);
+        Guid Insert(TUtilisateur utilisateur);
+        void Update(Guid Utilisateur_id, TUtilisateur utilisateur);
+        Guid CheckPassword(string email, string password);
     }
 }

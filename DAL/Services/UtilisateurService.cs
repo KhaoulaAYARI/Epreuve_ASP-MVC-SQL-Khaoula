@@ -1,4 +1,5 @@
-﻿using DAL.Entities;
+﻿using Common;
+using DAL.Entities;
 using DAL.Mappers;
 using Microsoft.Data.SqlClient;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Services
 {
-    public class UtilisateurService
+    public class UtilisateurService:IUtilisateurRepository<Utilisateur>
     {
         private const string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Database_Epreuve;Integrated Security=True;";
         public IEnumerable<Utilisateur> Get()
