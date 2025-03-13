@@ -35,5 +35,10 @@ namespace BLL.Entities
             Password = password;
             Pseudo = pseudo;
         }
+        public Utilisateur(string pseudo)
+        {
+           
+            Pseudo = pseudo;
+        }
     }
 }

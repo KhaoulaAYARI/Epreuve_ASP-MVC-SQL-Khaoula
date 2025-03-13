@@ -28,5 +28,31 @@ namespace ASP_MVC.Mappers
                 null
                 );
         }
+        public static UtilisateurEditForm ToEditForm(this Utilisateur utilisateur)
+        {
+            if (utilisateur is null) throw new ArgumentNullException(nameof(utilisateur));
+            return new UtilisateurEditForm()
+            {
+                Pseudo = utilisateur.Pseudo,
+              
+            };
+        }
+        public static Utilisateur ToBLL(this UtilisateurEditForm utilisateur)
+        {
+            if (utilisateur is null) throw new ArgumentNullException(nameof(utilisateur));
+            
+            return new Utilisateur(
+
+                Guid.Empty,
+                "********",
+                "********",
+                utilisateur.Pseudo,
+                 DateTime.Now,
+                null
+               );
+        }
+
+
+
     }
 }
