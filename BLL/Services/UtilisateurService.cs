@@ -12,9 +12,9 @@ namespace BLL.Services
     public class UtilisateurService
     {
         private D.UtilisateurService _service;
-        public UtilisateurService()
+        public UtilisateurService(D.UtilisateurService utilisateurService)
         {
-            _service=new D.UtilisateurService();
+            _service= utilisateurService;
         }
         public IEnumerable<Utilisateur> Get()
         {
