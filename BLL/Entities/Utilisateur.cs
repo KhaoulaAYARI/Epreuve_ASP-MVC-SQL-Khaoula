@@ -29,6 +29,11 @@ namespace BLL.Entities
             Date_Creation = date_Creation;
             _date_desactivation = date_desactivation;
         }
-
+        public Utilisateur( string email, string password, string pseudo)
+        {
+            Email = email;
+            Password = password;
+            Pseudo = pseudo;
+        }
     }
 }

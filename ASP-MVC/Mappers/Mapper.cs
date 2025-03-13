@@ -16,5 +16,17 @@ namespace ASP_MVC.Mappers
                 Date_Creation = DateOnly.FromDateTime(utilisateur.Date_Creation)
             };
         }
+        public static Utilisateur ToBLL (this UtilisateurCreateForm utilisateur)
+        {
+            if (utilisateur is null) throw new ArgumentNullException(nameof(utilisateur));
+            return new Utilisateur(
+                Guid.NewGuid(),
+                utilisateur.Email,
+                utilisateur.password,
+                utilisateur.Pseudo,
+                DateTime.Now,
+                null
+                );
+        }
     }
 }

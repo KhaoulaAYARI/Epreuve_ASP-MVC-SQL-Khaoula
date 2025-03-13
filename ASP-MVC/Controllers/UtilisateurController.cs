@@ -25,9 +25,17 @@ namespace ASP_MVC.Controllers
         // GET: UtilisateurController/Details/5
         public ActionResult Details(Guid id)
         {
-            UtilisateurDetails model = _utilisateurService.GetById(id).ToDetails();
-            return View();
+            try
+            {
+                UtilisateurDetails model = _utilisateurService.GetById(id).ToDetails();
+                return View(model);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
+        
 
         // GET: UtilisateurController/Create
         public ActionResult Create()
@@ -38,11 +46,14 @@ namespace ASP_MVC.Controllers
         // POST: UtilisateurController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(UtilisateurCreateForm form)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                
+                if (!ModelState.IsValid) throw new ArgumentException();
+                Guid id = _utilisateurService.Insert(form.ToBLL());
+                return RedirectToAction(nameof(Details), new { id = id });///////
             }
             catch
             {
