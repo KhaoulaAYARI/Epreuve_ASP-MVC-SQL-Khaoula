@@ -111,5 +111,20 @@ namespace DAL.Services
                 }
             }
         }
+
+        public void Delete(Guid Utilisateur_id)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_Utilisateur_Delete";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue(nameof(Utilisateur_id), Utilisateur_id);
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

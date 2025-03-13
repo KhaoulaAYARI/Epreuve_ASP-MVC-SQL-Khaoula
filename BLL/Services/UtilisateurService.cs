@@ -38,5 +38,10 @@ namespace BLL.Services
             return _service.CheckPassword(email, password);
         }
 
+        public void Delete(Guid Utilisateur_id)
+        {
+            _service.Delete(Utilisateur_id);
+
+        }
     }
 }

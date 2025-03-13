@@ -16,7 +16,7 @@ namespace ASP_MVC.Mappers
                 Date_Creation = DateOnly.FromDateTime(utilisateur.Date_Creation)
             };
         }
-        public static Utilisateur ToBLL (this UtilisateurCreateForm utilisateur)
+        public static Utilisateur ToBLL(this UtilisateurCreateForm utilisateur)
         {
             if (utilisateur is null) throw new ArgumentNullException(nameof(utilisateur));
             return new Utilisateur(
@@ -34,13 +34,13 @@ namespace ASP_MVC.Mappers
             return new UtilisateurEditForm()
             {
                 Pseudo = utilisateur.Pseudo,
-              
+
             };
         }
         public static Utilisateur ToBLL(this UtilisateurEditForm utilisateur)
         {
             if (utilisateur is null) throw new ArgumentNullException(nameof(utilisateur));
-            
+
             return new Utilisateur(
 
                 Guid.Empty,
@@ -51,8 +51,18 @@ namespace ASP_MVC.Mappers
                 null
                );
         }
+        public static UtilisateurDelete ToDelete(this Utilisateur utilisateur)
+        {
+            if (utilisateur is null) throw new ArgumentNullException(nameof(utilisateur));
+            return new UtilisateurDelete()
+            {
+                Email = utilisateur.Email,
+                Pseudo = utilisateur.Pseudo
+            };
 
 
 
+
+        }
     }
 }

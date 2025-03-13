@@ -13,5 +13,6 @@ namespace Common
         Guid Insert(TUtilisateur utilisateur);
         void Update(Guid Utilisateur_id, TUtilisateur utilisateur);
         Guid CheckPassword(string email, string password);
+        public void Delete(Guid Utilisateur_id);
     }
 }
