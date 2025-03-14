@@ -10,6 +10,9 @@ namespace ASP_MVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            //Ajout Configuaration de session
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession();
             //Ajout de nos services : ceux de la BLL et ceux de la DAL
             builder.Services.AddScoped<IUtilisateurRepository<BLL.Entities.Utilisateur>,BLL.Services.UtilisateurService>();        builder.Services.AddScoped<IUtilisateurRepository<DAL.Entities.Utilisateur>,DAL.Services.UtilisateurService>();
             builder.Services.AddScoped<IJeuRepository<BLL.Entities.Jeu>, BLL.Services.JeuService>(); builder.Services.AddScoped<IJeuRepository<DAL.Entities.Jeu>, DAL.Services.JeuService>();
