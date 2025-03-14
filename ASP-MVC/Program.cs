@@ -1,3 +1,4 @@
+using ASP_MVC.Handlers;
 using Common;
 
 namespace ASP_MVC
@@ -10,9 +11,27 @@ namespace ASP_MVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            //Ajout Configuaration de session
+            //
+            builder.Services.AddHttpContextAccessor();
+
+            //Ajout de l'appel des services necessaires a l'utilisation de session
             builder.Services.AddDistributedMemoryCache();
-            builder.Services.AddSession();
+            builder.Services.AddSession(
+                options => {
+                    options.Cookie.Name = "CookieEpruve";
+                    options.Cookie.HttpOnly = true;
+                    options.Cookie.IsEssential = true;
+                    options.IdleTimeout = TimeSpan.FromMinutes(10);
+                });
+            builder.Services.Configure<CookiePolicyOptions>(options => {
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+                options.Secure = CookieSecurePolicy.Always;
+            });
+            //Ajout de notre service de SessionManger
+            builder.Services.AddScoped <SessionManager>();
+
+
             //Ajout de nos services : ceux de la BLL et ceux de la DAL
             builder.Services.AddScoped<IUtilisateurRepository<BLL.Entities.Utilisateur>,BLL.Services.UtilisateurService>();        builder.Services.AddScoped<IUtilisateurRepository<DAL.Entities.Utilisateur>,DAL.Services.UtilisateurService>();
             builder.Services.AddScoped<IJeuRepository<BLL.Entities.Jeu>, BLL.Services.JeuService>(); builder.Services.AddScoped<IJeuRepository<DAL.Entities.Jeu>, DAL.Services.JeuService>();
@@ -24,6 +43,10 @@ namespace ASP_MVC
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseSession();
+            app.UseCookiePolicy();
+
             app.UseStaticFiles();
 
             app.UseRouting();
