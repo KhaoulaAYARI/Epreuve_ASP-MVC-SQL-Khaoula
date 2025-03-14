@@ -1,0 +1,8 @@
+﻿CREATE PROCEDURE [dbo].[SP_Tag_Delete]
+	@Tag_Id UNIQUEIDENTIFIER
+AS
+BEGIN
+	DELETE 
+		FROM [Tag]
+		WHERE [Tag_Id] = @Tag_id
+END

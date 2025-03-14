@@ -41,5 +41,16 @@ namespace DAL.Mappers
             };
 
         }
+        public static Tag ToTag(this IDataRecord record)
+        {
+            if (record is null) throw new ArgumentNullException(nameof(record));
+            return new Tag()
+            {
+                Tag_Id = (Guid)record[nameof(Tag.Tag_Id)],
+                Nom = (string)record[nameof(Tag.Nom)],
+                Description = (record[nameof(Tag.Description)] is DBNull) ? null : (string?)record[nameof(Tag.Description)]
+            };
+
+        }
     }
 }
