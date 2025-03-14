@@ -184,7 +184,7 @@ namespace ConsoleTest
             /*-------------TEST BLL (Jeu)-------------
              * ------------------------------------------------
              * ------------------------------------------------*/
-            JeuService service = new JeuService();
+            /*JeuService service = new JeuService();
             Jeu j=new Jeu(
                 Guid.NewGuid(),
                 "JeuTestConsole",
@@ -198,7 +198,7 @@ namespace ConsoleTest
                 null
                 );
             service.Insert(j);
-            Console.WriteLine($"{j.Nom }et{ j.AgeMax}");
+            Console.WriteLine($"{j.Nom }et{ j.AgeMax}");*/
 
 
         }

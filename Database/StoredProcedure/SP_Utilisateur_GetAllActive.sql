@@ -5,7 +5,8 @@ BEGIN
 	SELECT [Utilisateur_Id],
 			[Email],
 			[Pseudo],
-			[Date_Creation]
+			[Date_Creation],
+			[Date_Desactivation]
 		FROM [Utilisateur]
 		WHERE [Date_Desactivation] IS NULL
 END

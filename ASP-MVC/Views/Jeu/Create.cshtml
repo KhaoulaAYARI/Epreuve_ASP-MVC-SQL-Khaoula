@@ -1,7 +1,12 @@
-﻿@model ASP_MVC.Models.Jeu.JeuCreateForm
+﻿
+@using Common
+@using BLL.Entities
+@inject IUtilisateurRepository<Utilisateur> _utilisateurService;
+@model ASP_MVC.Models.Jeu.JeuCreateForm
 
 @{
     ViewData["Title"] = "Create";
+    IEnumerable<SelectListItem> UtilisateursOptions = _utilisateurService.Get().Select(bll => new SelectListItem() { Value = bll.Utilisateur_Id.ToString(), Text = $"{bll.Pseudo}" });
 }
 
 <h1>Create</h1>
@@ -54,9 +59,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Cree_Par" class="control-label"></label>
-                @* <select asp-for="Cree_Par" asp-items="UtilisateursOptions" class="form-control"> *@
-                @*     <option disabled selected> Choisir un utilsateur</option> *@
-                @* </select> *@
+                <select asp-for="Cree_Par" asp-items="UtilisateursOptions" class="form-control"> 
+                    <option disabled selected> Choisir un utilsateur</option>
+                  </select> 
                 <span asp-validation-for="Cree_Par" class="text-danger"></span>
             </div>
             <div class="form-group">

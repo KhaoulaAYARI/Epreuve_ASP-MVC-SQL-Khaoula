@@ -47,24 +47,29 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Nombre_Joueur_Max)
         </dd>
+        @if(Model.Duree_Minute is not null ){
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Duree_Minute)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Duree_Minute)
         </dd>
+        }
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Date_Creation)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Date_Creation)
         </dd>
+        @if (Model.Cree_Par is not null)
+        {
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Cree_Par)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Cree_Par)
         </dd>
+        }
     </dl>
 </div>
 <div>
