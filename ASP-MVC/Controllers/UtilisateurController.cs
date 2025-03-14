@@ -19,8 +19,17 @@ namespace ASP_MVC.Controllers
         // GET: UtilisateurController
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                IEnumerable<UtilisateurListItem> model = _utilisateurService.Get().Select(bll => bll.ToListItem());
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
+
 
         // GET: UtilisateurController/Details/5
         public ActionResult Details(Guid id)

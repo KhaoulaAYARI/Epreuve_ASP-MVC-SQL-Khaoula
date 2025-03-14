@@ -8,6 +8,17 @@ namespace ASP_MVC.Mappers
     internal static class Mapper
     {
         //________________Utilisateur_______________//
+        public static UtilisateurListItem ToListItem(this Utilisateur utilisateur)
+        {
+            if (utilisateur is null) throw new ArgumentNullException(nameof(utilisateur));
+            return new UtilisateurListItem()
+            {
+                Utilisateur_Id = utilisateur.Utilisateur_Id,
+                Pseudo = utilisateur.Pseudo
+                
+            };
+        }
+
 
         public static UtilisateurDetails ToDetails(this Utilisateur utilisateur)
         {
