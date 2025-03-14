@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_MVC.Models.Jeu
 {
@@ -57,9 +58,8 @@ namespace ASP_MVC.Models.Jeu
         [DataType(DataType.Date)]
         public DateTime Date_Creation { get; set; }
 
-
-        [DisplayName("Veuillez selectionner un createur: ")]
-        public Guid? Cree_Par { get; set; }
+        [HiddenInput]
+         public Guid? Cree_Par { get; set; }
 
     }
 }
