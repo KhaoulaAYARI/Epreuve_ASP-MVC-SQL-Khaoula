@@ -12,6 +12,7 @@ namespace Common
         TJeu GetById(Guid Jeu_id);
         Guid Insert(TJeu jeu);
         void Update(Guid Jeu_id, TJeu jeu);
-        public void Delete(Guid Jeu_id);
+         void Delete(Guid Jeu_id);
+        IEnumerable<TJeu> GetFromUser(Guid utilisateur_id);
     }
 }

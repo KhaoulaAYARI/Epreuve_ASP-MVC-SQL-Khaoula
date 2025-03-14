@@ -37,5 +37,42 @@ namespace BLL.Mappers
             };
 
         }
+
+        public static Jeu ToBLL(this D.Jeu jeu)
+        {
+            if (jeu is null) throw new ArgumentNullException(nameof(jeu));
+            return new Jeu(
+                jeu.Jeu_Id,
+               jeu.Nom,
+               jeu.Description,
+               jeu.AgeMin, 
+               jeu.AgeMax,
+               jeu.Nombre_Joueur_Min,
+               jeu.Nombre_Joueur_Max,
+               jeu.Duree_Minute,
+               jeu.Date_Creation,
+               jeu.Cree_Par
+                );
+        }
+        public static D.Jeu ToDAL(this Jeu jeu)
+        {
+            if (jeu is null) throw new ArgumentNullException(nameof(jeu));
+            return new D.Jeu()
+            {
+                Jeu_Id = jeu.Jeu_Id,
+                Nom = jeu.Nom,
+                Description = jeu.Description,
+                AgeMin = jeu.AgeMin,
+                AgeMax = jeu.AgeMax,
+                Nombre_Joueur_Min = jeu.Nombre_Joueur_Min,
+                Nombre_Joueur_Max = jeu.Nombre_Joueur_Max,
+                Duree_Minute= jeu.Duree_Minute,
+                Date_Creation = jeu.Date_Creation,
+                Cree_Par = jeu.Cree_Par
+                //(utilisateur.estDesactive)? new DateTime(): null
+            };
+
+        }
+
     }
 }

@@ -12,7 +12,7 @@ namespace ASP_MVC
             builder.Services.AddControllersWithViews();
             //Ajout de nos services : ceux de la BLL et ceux de la DAL
             builder.Services.AddScoped<IUtilisateurRepository<BLL.Entities.Utilisateur>,BLL.Services.UtilisateurService>();        builder.Services.AddScoped<IUtilisateurRepository<DAL.Entities.Utilisateur>,DAL.Services.UtilisateurService>();
-
+            builder.Services.AddScoped<IJeuRepository<BLL.Entities.Jeu>, BLL.Services.JeuService>(); builder.Services.AddScoped<IJeuRepository<DAL.Entities.Jeu>, DAL.Services.JeuService>();
 
             var app = builder.Build();
 

@@ -1,7 +1,7 @@
-﻿using DAL.Entities;
-using DAL.Services;
-//using BLL.Entities;
-//using BLL.Services;
+﻿//using DAL.Entities;
+//using DAL.Services;
+using BLL.Entities;
+using BLL.Services;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using static System.Net.Mime.MediaTypeNames;
@@ -12,14 +12,15 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            /* Test Delete(DAL) OK13 - 02 - 2025
-           JeuService service = new JeuService();
-           Guid id = Guid.Parse("4d29fd87-4078-4bca-afea-2436d9283eb4");
-           service.Delete(id);*/
 
 
            /*-------------TEST DAL Jeu-------------
        * -------------------------------------------------*/
+
+            /* Test Delete(DAL) OK13 - 02 - 2025
+           JeuService service = new JeuService();
+           Guid id = Guid.Parse("4d29fd87-4078-4bca-afea-2436d9283eb4");
+           service.Delete(id);*/
             /* Test GetByUtilisateurId(DAL) OK13 - 02 - 2025
              Guid id = Guid.Parse("a91e641f-464a-4a28-8799-ef98a46a8b13");
              foreach (Jeu j in service.GetFromUser(id)){
@@ -113,9 +114,9 @@ namespace ConsoleTest
             Console.WriteLine("apres update");
             Console.WriteLine($"{u.Utilisateur_Id}--{u.Pseudo}"); */
 
-            /*-------------TEST BLL-------------
-             * ---------------------------------
-             * ---------------------------------
+            /*-------------TEST BLL (Utilisateur)-------------
+             * ------------------------------------------------
+             * ------------------------------------------------
              * Test INSERT (BLL) ok 12-03-2025 
              Utilisateur u = new Utilisateur(
             Guid.NewGuid(), 
@@ -177,6 +178,27 @@ namespace ConsoleTest
 
             // Affichage après la mise à jour
             Console.WriteLine($"{u.Utilisateur_Id} -- {u.Pseudo}");*/
+
+
+
+            /*-------------TEST BLL (Jeu)-------------
+             * ------------------------------------------------
+             * ------------------------------------------------*/
+            JeuService service = new JeuService();
+            Jeu j=new Jeu(
+                Guid.NewGuid(),
+                "JeuTestConsole",
+                "Description",
+                20,
+                50,
+                2,
+                5,
+                4,
+                DateTime.Now,
+                null
+                );
+            service.Insert(j);
+            Console.WriteLine($"{j.Nom }et{ j.AgeMax}");
 
 
         }

@@ -1,10 +1,14 @@
-﻿using ASP_MVC.Models.Utilisateur;
+﻿using ASP_MVC.Models.Jeu;
+using ASP_MVC.Models.Utilisateur;
 using BLL.Entities;
+using Humanizer;
 
 namespace ASP_MVC.Mappers
 {
     internal static class Mapper
     {
+        //________________Utilisateur_______________//
+
         public static UtilisateurDetails ToDetails(this Utilisateur utilisateur)
         {
             if (utilisateur is null) throw new ArgumentNullException(nameof(utilisateur));
@@ -64,5 +68,66 @@ namespace ASP_MVC.Mappers
 
 
         }
+        //________________JEU_______________//
+
+        public static JeuListItem ToListeItem(this Jeu jeu)
+        {
+            if (jeu is null) throw new ArgumentNullException(nameof(jeu));
+
+            return new JeuListItem()
+            {
+                Jeu_Id = jeu.Jeu_Id,
+                Nom = jeu.Nom,
+                Description = jeu.Description
+            };
+
+        }
+        public static JeuDetails ToDetails(this Jeu jeu)
+        {
+            if (jeu is null) throw new ArgumentNullException(nameof(jeu));
+            return new JeuDetails()
+            {
+                Jeu_Id = jeu.Jeu_Id,
+                Nom = jeu.Nom,
+                Description = jeu.Description,
+                AgeMin = jeu.AgeMin,
+                AgeMax = jeu.AgeMax,
+                Nombre_Joueur_Min = jeu.Nombre_Joueur_Min,
+                Nombre_Joueur_Max = jeu.Nombre_Joueur_Max,
+                Duree_Minute = jeu.Duree_Minute,
+                Date_Creation = jeu.Date_Creation,
+                Cree_Par = jeu.Cree_Par
+            };
+        }
+        public static Jeu ToBLL(this JeuCreateForm jeu)
+        {
+            if (jeu is null) throw new ArgumentNullException(nameof(jeu));
+            return new Jeu(
+                Guid.Empty,
+                jeu.Nom,
+                jeu.Description,
+                jeu.AgeMin,
+                jeu.AgeMax,
+                jeu.Nombre_Joueur_Min,
+                jeu.Nombre_Joueur_Max,
+                jeu.Duree_Minute,
+                DateTime.Now,
+                jeu.Cree_Par
+                );
+        }
+
+        public static JeuDelete ToDelete(this Jeu jeu)
+        {
+            if (jeu is null) throw new ArgumentNullException(nameof(jeu));
+
+            return new JeuDelete()
+            {
+                Nom=jeu.Nom,
+                Description=jeu.Description,
+                Cree_Par=jeu.Cree_Par
+
+            };
+        }
+
     }
 }

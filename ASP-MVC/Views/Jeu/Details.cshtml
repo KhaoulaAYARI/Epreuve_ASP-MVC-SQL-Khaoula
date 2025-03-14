@@ -1,0 +1,73 @@
+﻿@model ASP_MVC.Models.Jeu.JeuDetails
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+@* voir video 25:50 pour voir les modofications possibles https://interface3be.sharepoint.com/sites/WAD24-Teams/_layouts/15/stream.aspx?id=%2Fsites%2FWAD24%2DTeams%2FDocuments%20partages%2FCSharp%2D%20initiation%20%C3%A0%20la%20programmation%2FRecordings%2F20250203%20%5F%20ASP%2Enet%20%2D%20MVC%2D20250203%5F145059%2DEnregistrement%20de%20la%20r%C3%A9union%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E06cf6dff%2Da2e9%2D49c1%2Dba71%2D08da61e991c0 *@
+<div>
+    <h4>JeuDetails</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AgeMin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AgeMin)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AgeMax)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AgeMax)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre_Joueur_Min)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre_Joueur_Min)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre_Joueur_Max)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre_Joueur_Max)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Duree_Minute)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Duree_Minute)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date_Creation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date_Creation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cree_Par)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cree_Par)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Jeu_Id  }) |
+    <a asp-action="Index">Back to List</a>
+</div>
