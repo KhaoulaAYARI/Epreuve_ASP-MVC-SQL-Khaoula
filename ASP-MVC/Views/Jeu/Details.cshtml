@@ -61,14 +61,15 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Date_Creation)
         </dd>
-        @if (Model.Cree_Par is not null)
+        @if (Model.Createur is not null)
         {
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cree_Par)
+                @Html.DisplayNameFor(model => model.Createur)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cree_Par)
+                <a asp-action="Details" asp-controller="Utilisateur" asp-route-id="@Model.Cree_par">@Html.DisplayFor(model => model.Createur)</a>
         </dd>
+
         }
     </dl>
 </div>

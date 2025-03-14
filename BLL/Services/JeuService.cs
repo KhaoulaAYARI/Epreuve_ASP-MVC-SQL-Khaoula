@@ -1,6 +1,7 @@
 ﻿using BLL.Entities;
 using BLL.Mappers;
 using Common;
+//using DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,39 +12,55 @@ namespace BLL.Services
 {
     public class JeuService : IJeuRepository<Jeu>
     {
-        private IJeuRepository<DAL.Entities.Jeu> _service;
-        public JeuService(IJeuRepository<DAL.Entities.Jeu> service)
+        private IJeuRepository<DAL.Entities.Jeu> _jeuService;
+        private IUtilisateurRepository<DAL.Entities.Utilisateur> _utilisateurService;
+        public JeuService(IJeuRepository<DAL.Entities.Jeu> jeuService, IUtilisateurRepository<DAL.Entities.Utilisateur> utilisateurService)
         {
-            _service=service;
+            _jeuService=jeuService;
+            _utilisateurService=utilisateurService;
         }
         public void Delete(Guid Jeu_id)
         {
-            _service.Delete(Jeu_id);
+            _jeuService.Delete(Jeu_id);
         }
 
         public IEnumerable<Jeu> Get()
         {
-            return _service.Get().Select(dal => dal.ToBLL());
+            IEnumerable<Jeu> jeux= _jeuService.Get().Select(dal => dal.ToBLL());
+            foreach(Jeu jeu in jeux)
+            {
+                if (jeu.Cree_Par is not null)
+                {
+                    jeu.Createur = _utilisateurService.GetById((Guid)jeu.Cree_Par).ToBLL();
+                }
+
+            }
+            return jeux;
         }
 
         public Jeu GetById(Guid Jeu_id)
         {
-            return _service.GetById(Jeu_id).ToBLL();
+            Jeu jeu= _jeuService.GetById(Jeu_id).ToBLL();
+            if (jeu.Cree_Par is not null)
+            {
+                jeu.Createur = _utilisateurService.GetById((Guid)jeu.Cree_Par).ToBLL();
+            }
+            return jeu;
         }
 
         public IEnumerable<Jeu> GetFromUser(Guid utilisateur_id)
         {
-            return _service.GetFromUser(utilisateur_id).Select(dal => dal.ToBLL());
+            return _jeuService.GetFromUser(utilisateur_id).Select(dal => dal.ToBLL());
         }
 
         public Guid Insert(Jeu jeu)
         {
-            return _service.Insert(jeu.ToDAL());
+            return _jeuService.Insert(jeu.ToDAL());
         }
 
         public void Update(Guid Jeu_id, Jeu jeu)
         {
-            _service.Update(Jeu_id, jeu.ToDAL());
+            _jeuService.Update(Jeu_id, jeu.ToDAL());
         }
     }
 }

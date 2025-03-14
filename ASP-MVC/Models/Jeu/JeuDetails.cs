@@ -41,6 +41,8 @@ namespace ASP_MVC.Models.Jeu
 
         [DisplayName("Crée par : ")]
 
-        public Guid? Cree_Par { get; set; }
+        public String? Createur { get; set; }
+        [ScaffoldColumn(false)]
+        public Guid? Cree_par { get; set; }
     }
 }

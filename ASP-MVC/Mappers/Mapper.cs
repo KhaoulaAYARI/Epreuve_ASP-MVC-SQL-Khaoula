@@ -28,7 +28,8 @@ namespace ASP_MVC.Mappers
                 Utilisateur_Id = utilisateur.Utilisateur_Id,
                 Email = utilisateur.Email,
                 Pseudo = utilisateur.Pseudo,
-                Date_Creation = DateOnly.FromDateTime(utilisateur.Date_Creation)
+                Date_Creation = DateOnly.FromDateTime(utilisateur.Date_Creation),
+                Jeux=utilisateur.JEUX.Select(bll=>bll.ToListeItem())
             };
         }
         public static Utilisateur ToBLL(this UtilisateurCreateForm utilisateur)
@@ -107,7 +108,8 @@ namespace ASP_MVC.Mappers
                 Nombre_Joueur_Max = jeu.Nombre_Joueur_Max,
                 Duree_Minute = jeu.Duree_Minute,
                 Date_Creation = jeu.Date_Creation,
-                Cree_Par = jeu.Cree_Par
+                Createur = (jeu.Createur is null)? null:$"{jeu.Createur.Pseudo}",
+                Cree_par=jeu.Cree_Par
             };
         }
         public static Jeu ToBLL(this JeuCreateForm jeu)

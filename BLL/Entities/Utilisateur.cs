@@ -18,6 +18,7 @@ namespace BLL.Entities
         {
             get { return _date_desactivation is not null; }
         }
+        public IEnumerable<Jeu> JEUX { get; set; }
 
 
         public Utilisateur(Guid utilisateur_Id, string email, string password, string pseudo, DateTime date_Creation, DateTime? date_desactivation)

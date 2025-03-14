@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using ASP_MVC.Models.Jeu;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ASP_MVC.Models.Utilisateur
@@ -16,5 +17,7 @@ namespace ASP_MVC.Models.Utilisateur
         [DisplayName("Date d'inscription: ")]
         [DataType(DataType.Date)]
         public DateOnly Date_Creation { get; set; }
+        [DisplayName("Votre collection de jeux:")]
+        public IEnumerable<JeuListItem> Jeux{ get; set; }
     }
 }

@@ -8,6 +8,22 @@ namespace BLL.Entities
 {
     public class Jeu
     {
+
+        public Guid Jeu_Id { get; set; }
+        public string Nom { get; set; }
+        public string Description { get; set; }
+        public int AgeMin { get; set; }
+        public int AgeMax { get; set; }
+        public int Nombre_Joueur_Min { get; set; }
+        public int Nombre_Joueur_Max { get; set; }
+        public int? Duree_Minute { get; set; }
+        public DateTime Date_Creation { get; set; }
+        public Guid? Cree_Par { get; set; }
+        public Utilisateur? Createur { get; set; }
+
+
+
+
         public Jeu(Guid jeu_Id, string nom, string description, int ageMin, int ageMax, int nombre_Joueur_Min, int nombre_Joueur_Max, int? duree_Minute, DateTime date_Creation, Guid? cree_Par)
         {
             Jeu_Id = jeu_Id;
@@ -21,17 +37,6 @@ namespace BLL.Entities
             Date_Creation = date_Creation;
             Cree_Par = cree_Par;
         }
-
-        public Guid Jeu_Id { get; set; }
-        public string Nom { get; set; }
-        public string Description { get; set; }
-        public int AgeMin { get; set; }
-        public int AgeMax { get; set; }
-        public int Nombre_Joueur_Min { get; set; }
-        public int Nombre_Joueur_Max { get; set; }
-        public int? Duree_Minute { get; set; }
-        public DateTime Date_Creation { get; set; }
-        public Guid? Cree_Par { get; set; }
 
     }
 }

@@ -29,6 +29,8 @@
             @Html.DisplayFor(model => model.Date_Creation)
         </dd>
     </dl>
+    <h4>@Html.DisplayNameFor(model=>model.Jeux)</h4>
+    <partial name="_JeuxList" model="Model.Jeux"></partial>
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new {  id = Model.Utilisateur_Id }) 
